@@ -39,7 +39,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{ if and .Values.configMap.enabled (eq .Values.configMap.as "file")  }}
           volumeMounts:
-            - mountPath: /opt/apps/config
+            - mountPath: /opt/app/config
               name: config
           {{ end }}
           startupProbe:
