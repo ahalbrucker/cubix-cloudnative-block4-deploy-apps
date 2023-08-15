@@ -16,7 +16,7 @@ jobs:
           mkdir spring-cubix/configuration
           cp api.properties spring-cubix/configuration/application.properties
           helm upgrade api spring-cubix --install -f api.yaml -n cubix
-          cp db.properties spring-cubix/configuration/db.properties
+          cp db.properties spring-cubix/configuration/application.properties
           helm upgrade db spring-cubix --install -f db.yaml -n cubix 
           rm spring-cubix/configuration
 # Swap commenting if your self-hosted agent is on Linux or on MacOS
