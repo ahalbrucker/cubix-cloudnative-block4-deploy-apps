@@ -1,4 +1,10 @@
+configMap:
+  enabled: false
+  directory: configuration
+  as: ""
 replicaCount: 1
+
+openTelemetry: {}
 
 image:
   repository: ghcr.io/drsylent/cubix/cloudnative4/api

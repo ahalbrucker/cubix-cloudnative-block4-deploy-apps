@@ -1,16 +1,20 @@
 image:
-  repository: ghcr.io/drsylent/cubix/cloudnative4/db
+  repository: ghcr.io/ahalbrucker/cubix/cloudnative4/db
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
-env:
-- name: SPRING_DATASOURCE_URL
-  value: jdbc:postgresql://postgresql:5432/postgres
-- name: SPRING_DATASOURCE_USERNAME
-  value: user
-- name: SPRING_DATASOURCE_PASSWORD
-  #value: <<SET WITH INSTALLATION>>
+configMap:
+  enabled: true
+  as: file
+
+openTelemetry:
+  targetUrl: http://tempo.tools:4317
+
+secret:
+- envName: SPRING_DATASOURCE_PASSWORD
+  secretName: db-password
+  secretKey: password
 
 ingress:
   enabled: false
